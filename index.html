@@ -9,22 +9,25 @@
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111827;
-      background: #f7f9fc;
+      font-family: Inter, Arial, sans-serif;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 70% 35%, rgba(37, 99, 235, 0.22), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(240, 100, 42, 0.10), transparent 30%),
+        #071126;
+      overflow-x: hidden;
     }
 
     header {
       height: 72px;
       background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -33,7 +36,7 @@
 
     .nav {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1180px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -42,63 +45,57 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 24px;
-      font-weight: 800;
-      color: #111827;
+      gap: 12px;
       text-decoration: none;
+      color: #111827;
+      font-size: 22px;
+      font-weight: 800;
     }
 
     .logo img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      object-fit: cover;
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
     }
 
     .menu {
-      display: flex;
-      gap: 34px;
-      font-size: 15px;
-      color: #374151;
+      display: none;
     }
 
-    .badge-top {
+    .top-button {
       background: #2563eb;
       color: #ffffff;
-      padding: 12px 18px;
-      border-radius: 9px;
+      padding: 12px 20px;
+      border-radius: 10px;
       font-size: 14px;
       font-weight: 700;
     }
 
     main {
-      min-height: calc(100vh - 72px);
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 70px 24px;
+      padding: 80px 24px;
     }
 
     .hero {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1180px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      gap: 70px;
       align-items: center;
     }
 
     .label {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 22px;
-      padding: 10px 16px;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid #fed7aa;
-      background: #fff7ed;
-      color: #ea580c;
+      background: rgba(240, 100, 42, 0.10);
+      border: 1px solid rgba(240, 100, 42, 0.28);
+      color: #ff9a67;
       font-size: 14px;
       font-weight: 700;
     }
@@ -111,75 +108,126 @@
     }
 
     h1 {
-      max-width: 620px;
-      margin-bottom: 24px;
-      color: #0f172a;
-      font-size: clamp(46px, 7vw, 78px);
-      line-height: 1;
-      letter-spacing: -0.05em;
-    }
-
-    h1 strong {
-      color: #2563eb;
-      font-weight: 800;
+      margin-bottom: 28px;
+      font-size: clamp(56px, 7vw, 88px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      color: #ffffff;
+      max-width: 680px;
     }
 
     .intro {
       max-width: 620px;
       margin-bottom: 34px;
-      color: #475569;
+      color: rgba(255,255,255,0.72);
       font-size: 20px;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    .form {
+    .buttons {
       display: flex;
-      width: 100%;
-      max-width: 560px;
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 18px;
+      flex-wrap: wrap;
     }
 
-    .form input {
-      flex: 1;
-      height: 56px;
-      border: 1px solid #d8dee8;
-      border-radius: 12px;
-      padding: 0 18px;
-      font-size: 16px;
-      outline: none;
-      background: #ffffff;
-    }
-
-    .form button {
-      height: 56px;
-      border: none;
-      border-radius: 12px;
-      padding: 0 24px;
+    .primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 58px;
+      padding: 0 26px;
+      border-radius: 14px;
       background: #2563eb;
       color: #ffffff;
+      text-decoration: none;
       font-size: 16px;
       font-weight: 700;
-      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+    }
+
+    .secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 58px;
+      padding: 0 26px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.03);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
     }
 
     .note {
-      color: #64748b;
+      color: rgba(255,255,255,0.55);
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 70px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .stat {
+      padding: 32px 24px;
+      border-right: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 48px;
+      color: #ffffff;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: rgba(255,255,255,0.58);
       font-size: 15px;
     }
 
+    .preview-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circle {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
     .preview {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 26px;
-      padding: 34px;
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.10);
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+      padding: 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.30);
     }
 
     .preview-head {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 28px;
     }
 
@@ -187,147 +235,127 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #0f172a;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
+      color: #ffffff;
     }
 
     .preview-logo img {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      object-fit: cover;
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
     }
 
     .soon {
       padding: 8px 12px;
       border-radius: 999px;
-      background: #eff6ff;
-      color: #2563eb;
+      background: rgba(37,99,235,0.18);
+      color: #a9c4ff;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.08em;
     }
 
     .line {
-      height: 13px;
+      height: 12px;
       border-radius: 999px;
-      background: #e8edf5;
+      background: rgba(255,255,255,0.12);
       margin-bottom: 12px;
     }
 
     .line.short {
-      width: 64%;
+      width: 65%;
     }
 
     .box {
-      margin-top: 26px;
-      border-radius: 20px;
-      background: #f1f6ff;
+      margin-top: 24px;
       padding: 24px;
+      border-radius: 22px;
+      background: rgba(7,17,38,0.65);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .box h2 {
       margin-bottom: 10px;
-      color: #0f172a;
-      font-size: 20px;
+      color: #ffffff;
+      font-size: 24px;
     }
 
     .box p {
-      margin-bottom: 20px;
-      color: #475569;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.68);
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .bar {
       height: 10px;
-      overflow: hidden;
       border-radius: 999px;
-      background: #dbe4f0;
+      overflow: hidden;
+      background: rgba(255,255,255,0.10);
     }
 
     .bar div {
-      width: 68%;
+      width: 62%;
       height: 100%;
       background: linear-gradient(90deg, #f0642a, #2563eb);
     }
 
-    .stats {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 20px;
-    }
-
-    .stat {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
-    }
-
-    .stat strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #0f172a;
-      font-size: 28px;
-    }
-
-    .stat span {
-      color: #64748b;
-      font-size: 15px;
-    }
-
     footer {
-      padding: 28px 24px;
+      padding: 34px 24px;
       text-align: center;
-      color: #64748b;
+      color: rgba(255,255,255,0.46);
       font-size: 14px;
     }
 
-    @media (max-width: 900px) {
-      .menu {
-        display: none;
-      }
-
+    @media (max-width: 980px) {
       .hero {
         grid-template-columns: 1fr;
-        gap: 36px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 640px) {
       header {
-        height: 64px;
         padding: 0 18px;
       }
 
-      .badge-top {
+      .top-button {
         display: none;
       }
 
       main {
-        min-height: calc(100vh - 64px);
-        padding: 42px 18px;
+        padding: 50px 18px;
       }
 
-      .form {
+      .buttons {
         flex-direction: column;
       }
 
-      .form button {
+      .primary,
+      .secondary {
         width: 100%;
-      }
-
-      .preview {
-        padding: 24px;
       }
 
       .stats {
         grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .circle {
+        width: 320px;
+        height: 320px;
       }
     }
   </style>
@@ -335,74 +363,97 @@
 <body>
   <header>
     <nav class="nav">
-      <a class="logo" href="/">
-        <img src="altivoo_favicon.svg" alt="Altivoo logo" />
+      <a class="logo" href="#">
+        <img src="altivoo_favicon.svg" alt="Altivoo logo">
         <span>Altivoo</span>
       </a>
 
-      <div class="menu">
-        <span>Voor aanvragers</span>
-        <span>Voor aanbieders</span>
-        <span>Prijzen</span>
-      </div>
-
-      <div class="badge-top">Binnenkort live</div>
+      <div class="top-button">Binnenkort live</div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div>
-        <div class="label"><span></span>Binnenkort live</div>
-        <h1>Altivoo komt binnenkort <strong>online.</strong></h1>
+        <div class="label">
+          <span></span>
+          Offerte ontvangen? Vergelijk gratis met de markt.
+        </div>
+
+        <h1>
+          Ontvang een beter bod<br>
+          op je eerste offerte.
+        </h1>
+
         <p class="intro">
-          We werken aan een platform waarmee je straks eenvoudig offertes kunt vergelijken. Laat je e-mailadres achter en ontvang een bericht zodra Altivoo live staat.
+          Upload je offerte anoniem. Gecertificeerde bedrijven reageren met een scherper bod. Jij kiest, altijd gratis en vrijblijvend.
         </p>
 
-        <form class="form" action="https://formspree.io/f/jouwformid" method="POST">
-          <input type="email" name="email" placeholder="Jouw e-mailadres" required />
-          <button type="submit">Houd mij op de hoogte</button>
-        </form>
+        <div class="buttons">
+          <a href="#" class="primary">Offerte uploaden, gratis</a>
+          <a href="#" class="secondary">Hoe werkt het?</a>
+        </div>
 
-        <p class="note">Geen spam. Alleen een update zodra we live zijn.</p>
-      </div>
+        <p class="note">
+          Altijd gratis voor aanvragers, geen creditcard nodig
+        </p>
 
-      <div class="preview">
-        <div class="preview-head">
-          <div class="preview-logo">
-            <img src="altivoo_favicon.svg" alt="" />
-            <span>Altivoo</span>
+        <div class="stats">
+          <div class="stat">
+            <strong>~30%</strong>
+            <span>Gemiddelde besparing</span>
           </div>
-          <div class="soon">SOON</div>
-        </div>
 
-        <div class="line"></div>
-        <div class="line short"></div>
+          <div class="stat">
+            <strong>3+</strong>
+            <span>Biedingen per aanvraag</span>
+          </div>
 
-        <div class="box">
-          <h2>Een beter bod begint hier</h2>
-          <p>Upload straks je offerte of aanvraag en vergelijk eenvoudig met betrouwbare aanbieders.</p>
-          <div class="bar"><div></div></div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Anoniem voor aanbieders</span>
+          </div>
+
+          <div class="stat">
+            <strong>KvK</strong>
+            <span>Alle aanbieders geverifieerd</span>
+          </div>
         </div>
       </div>
 
-      <div class="stats">
-        <div class="stat">
-          <strong>Gratis</strong>
-          <span>Voor aanvragers</span>
-        </div>
-        <div class="stat">
-          <strong>3+</strong>
-          <span>Biedingen per aanvraag</span>
-        </div>
-        <div class="stat">
-          <strong>KvK</strong>
-          <span>Aanbieders geverifieerd</span>
+      <div class="preview-wrap">
+        <div class="circle"></div>
+
+        <div class="preview">
+          <div class="preview-head">
+            <div class="preview-logo">
+              <img src="altivoo_favicon.svg" alt="">
+              <span>Altivoo</span>
+            </div>
+
+            <div class="soon">SOON</div>
+          </div>
+
+          <div class="line"></div>
+          <div class="line short"></div>
+
+          <div class="box">
+            <h2>Vergelijk straks eenvoudig offertes</h2>
+            <p>
+              Ontvang meerdere biedingen van geverifieerde aanbieders via één aanvraag.
+            </p>
+
+            <div class="bar">
+              <div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© 2026 Altivoo. Alle rechten voorbehouden.</footer>
+  <footer>
+    © 2026 Altivoo. Alle rechten voorbehouden.
+  </footer>
 </body>
 </html>
