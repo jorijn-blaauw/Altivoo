@@ -1,0 +1,12 @@
+
+<svg width="512" height="512" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#EEF3FF"/>
+
+  <path d="M17 17L17 5A12 12 0 0 1 27.4 23Z" fill="#1F2937"/>
+
+  <path d="M17 17L27.4 23A12 12 0 0 1 6.6 23Z" fill="#E8652A"/>
+
+  <path d="M17 17L6.6 23A12 12 0 0 1 17 5Z" fill="#3B6FE8"/>
+
+  <circle cx="17" cy="17" r="4" fill="white"/>
+</svg>
